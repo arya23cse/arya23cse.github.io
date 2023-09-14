@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="stylefeed.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        margin-top: 50px;
+        padding: 0;
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        position: relative;
+      }
+      nav {
+        margin-left: 80px;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      nav li {
+        float: left;
+      }
+      .button {
+        margin-left: 45%;
+        margin-top: 2%;
+      }
+      nav li a {
+        display: block;
+        color: #ffffff;
+        text-align: center;
+        font-size: medium;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav ul li a.active {
+        background-color: rgb(
+          52,
+          52,
+          234
+        ); /* Example active tab background color */
+        color: black; /* Example active tab text color */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      }
+
+      nav li a:hover {
+        background-color: #e4d7d7;
+        color: #000000;
+      }
+      .username {
+        width: 25vw;
+      }
+      .email {
+        width: 25vw;
+      }
+
+      .detail {
+        border-radius: 8px;
+        height: 100%;
+        width: 100%;
+        resize: none;
+        outline: 0;
+        padding: 8px 14px;
+        border: 1px solid rgb(219, 213, 213);
+        height: 50vh;
+      }
+      .popup {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 9999;
+        }
+
+      .popup-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 20px;
+          width: 400px;
+          text-align: center;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          display: flex;
+          flex-direction: column;
+        }
+
+      .popup-content h2 {
+          margin-top: 0;
+        }
+
+        .popup-content button {
+          margin-top: 10px;
+        }
+        .button {
+          align-items: center;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resource.html">Resources</a></li>
+        <li><a href="symptoms.html">Symptoms</a></li>
+        <li><a href="tutorial.html">Tutorials</a></li>
+        <li><a class="active" href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+    <script type="text/javascript">
+      (function(d, m){
+          var kommunicateSettings = 
+              {"appId":"ac248645c24dd0b6a239761d2ccb0917","popupWidget":true,"automaticChatOpenOnNavigation":true};
+          var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+          s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+          var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+          window.kommunicate = m; m._globals = kommunicateSettings;
+      })(document, window.kommunicate || {});
+  /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+  </script>
+    <div class="container">
+      <form action="feedback.html" method="post">
+        <div class="heading fw-bolder">
+          <h2>Feedback</h2>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Enter username"
+            name="username"
+            class="username form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            class="email form-control"
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            class="detail form-group"
+            placeholder="Enter your feedback"
+          ></textarea>
+        </div>
+        <button id="openBtn">Submit</button>
+
+          <div id="popup" class="popup">
+            <div class="popup-content" style="background-color: rgb(85, 134, 207);">
+              <h2>Feedback</h2>
+              <p>Feedback has been sent</p>
+              <button id="closeBtn">Close</button>
+            </div>
+          </div>
+          <script>
+            document.getElementById("openBtn").addEventListener("click", function () {
+                document.getElementById("popup").style.display = "block";
+            });
+        
+            document.getElementById("closeBtn").addEventListener("click", function () {
+                document.getElementById("popup").style.display = "none";
+            });
+        </script>
+
+      </form>
+    </div>
+  </body>
+</html>
